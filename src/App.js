@@ -1,21 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Timer hours= {12} minutes={5} seconds={33} isRunning={true}/>
     );
   }
 }
+
+class TimerBlock extends Component {
+  constructor (){
+    super();
+    //array of total times per timer
+    //array of current timers per timer
+  }
+}
+
+class Timer extends Component {
+  render() {
+    const zero = "0";
+    var hours = this.props.hours < 10 ? zero + this.props.hours : this.props.hours
+    var minutes = this.props.minutes < 10 ? zero + this.props.minutes : this.props.minutes
+    var seconds = this.props.seconds < 10 ? zero + this.props.seconds : this.props.seconds
+    return (
+      <div> {hours + ":" + minutes + ":" + seconds} </div>
+    );
+  }
+}
+
 
 export default App;
